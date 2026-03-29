@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>France Intel</title>
   <meta name="description" content="Sharp takes & fast facts on all things French" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -15,9 +17,9 @@
       --blanc: #FFFFFF;
       --dark: #080c14;
       --dark2: #0d1220;
-      --card: rgba(255,255,255,0.04);
-      --card-hover: rgba(255,255,255,0.08);
-      --border: rgba(255,255,255,0.08);
+      --card: rgba(255,255,255,0.05);
+      --card-hover: rgba(255,255,255,0.09);
+      --border: rgba(255,255,255,0.09);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +48,7 @@
       top: -200px; left: 50%;
       transform: translateX(-50%);
       width: 900px; height: 600px;
-      background: radial-gradient(ellipse at center, rgba(0,35,149,0.25) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(0,35,149,0.28) 0%, transparent 70%);
     }
     .bg::after {
       content: '';
@@ -54,7 +56,7 @@
       bottom: -100px; left: 50%;
       transform: translateX(-50%);
       width: 700px; height: 400px;
-      background: radial-gradient(ellipse at center, rgba(237,41,57,0.15) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(237,41,57,0.18) 0%, transparent 70%);
     }
 
     /* Grid lines */
@@ -95,7 +97,7 @@
     }
     .ticker-track {
       display: flex;
-      animation: ticker 30s linear infinite;
+      animation: ticker 35s linear infinite;
       white-space: nowrap;
     }
     .ticker-track span {
@@ -135,22 +137,44 @@
       z-index: 10;
       width: 100%;
       max-width: 480px;
-      padding: 120px 20px 60px;
+      padding: 110px 20px 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
+    }
+
+    /* === HERO IMAGE === */
+    .hero-wrap {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      position: relative;
+      animation: fadeDown 0.7s ease both;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .hero-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 220px;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,12,20,0.1) 0%, rgba(8,12,20,0.55) 100%);
     }
 
     /* === LOGO / HEADER === */
     .logo-wrap {
       position: relative;
-      margin-bottom: 28px;
-      animation: fadeDown 0.7s ease both;
+      margin-bottom: 16px;
+      animation: fadeDown 0.7s 0.1s ease both;
     }
-    .logo-wrap img {
-      width: 130px;
-      height: 130px;
+    .logo-wrap img.logo-img {
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid rgba(255,255,255,0.12);
@@ -174,27 +198,62 @@
       letter-spacing: 3px;
       text-align: center;
       line-height: 1;
-      animation: fadeDown 0.7s 0.1s ease both;
+      animation: fadeDown 0.7s 0.15s ease both;
     }
     .brand-name .france { color: var(--blanc); }
     .brand-name .intel {
-      color: var(--rouge);
       background: var(--rouge);
       color: white;
-      padding: 0 6px;
+      padding: 0 8px;
       margin-left: 6px;
     }
 
     .tagline {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.4);
       letter-spacing: 1.5px;
       text-transform: uppercase;
       text-align: center;
       margin-top: 10px;
-      margin-bottom: 36px;
+      margin-bottom: 20px;
       animation: fadeDown 0.7s 0.2s ease both;
+    }
+
+    /* === STATS === */
+    .stats {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      animation: fadeDown 0.7s 0.25s ease both;
+      backdrop-filter: blur(10px);
+    }
+    .stat {
+      flex: 1;
+      padding: 14px 10px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: var(--blanc);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--rouge); }
+    .stat-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 3px;
     }
 
     /* === LINKS === */
@@ -202,17 +261,17 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .link-btn {
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 16px 20px;
+      padding: 15px 18px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
       color: white;
       font-size: 15px;
@@ -222,13 +281,15 @@
       position: relative;
       overflow: hidden;
       animation: fadeUp 0.6s ease both;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .link-btn:nth-child(1) { animation-delay: 0.3s; }
-    .link-btn:nth-child(2) { animation-delay: 0.38s; }
-    .link-btn:nth-child(3) { animation-delay: 0.46s; }
-    .link-btn:nth-child(4) { animation-delay: 0.54s; }
-    .link-btn:nth-child(5) { animation-delay: 0.62s; }
-    .link-btn:nth-child(6) { animation-delay: 0.70s; }
+    .link-btn:nth-child(2) { animation-delay: 0.37s; }
+    .link-btn:nth-child(3) { animation-delay: 0.44s; }
+    .link-btn:nth-child(4) { animation-delay: 0.51s; }
+    .link-btn:nth-child(5) { animation-delay: 0.58s; }
+    .link-btn:nth-child(6) { animation-delay: 0.65s; }
 
     .link-btn::before {
       content: '';
@@ -236,21 +297,29 @@
       left: 0; top: 0; bottom: 0;
       width: 3px;
       background: var(--accent, var(--bleu));
-      border-radius: 10px 0 0 10px;
+      border-radius: 12px 0 0 12px;
       opacity: 0;
       transition: opacity 0.2s;
     }
+
+    /* Desktop hover */
     .link-btn:hover {
       background: var(--card-hover);
-      border-color: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.18);
       transform: translateX(4px);
     }
     .link-btn:hover::before { opacity: 1; }
 
+    /* Mobile touch */
+    .link-btn:active {
+      background: var(--card-hover);
+      transform: scale(0.98);
+    }
+
     .link-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -261,11 +330,11 @@
 
     .link-text { flex: 1; }
     .link-label { display: block; font-size: 15px; font-weight: 600; }
-    .link-sub { display: block; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 1px; }
+    .link-sub { display: block; font-size: 12px; color: rgba(255,255,255,0.38); font-weight: 400; margin-top: 2px; }
 
     .link-arrow {
       font-size: 16px;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.22);
       transition: color 0.2s, transform 0.2s;
     }
     .link-btn:hover .link-arrow {
@@ -279,17 +348,15 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 8px 0;
-      animation: fadeUp 0.6s 0.65s ease both;
+      margin: 6px 0;
+      animation: fadeUp 0.6s 0.62s ease both;
     }
     .sep-line { flex: 1; height: 1px; background: var(--border); }
     .sep-text { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 2px; text-transform: uppercase; }
 
-    /* === SUPPORT BUTTON (Buy me a coffee) === */
-    .btn-support {
-      --accent: #FFDD57;
-    }
-    .btn-support .link-icon { background: rgba(255,221,87,0.12); }
+    /* === SUPPORT BUTTON === */
+    .btn-support { --accent: #FFDD57; }
+    .btn-support .link-icon { background: rgba(255,221,87,0.1); }
 
     /* === FOOTER === */
     .footer {
@@ -313,7 +380,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SVG Icons */
     svg { display: block; }
   </style>
 </head>
@@ -334,14 +400,20 @@
   <div class="ticker-wrap">
     <div class="ticker-label">FRANCE INTEL</div>
     <div class="ticker-track">
-      <span>Géopolitique</span>
-      <span>Actualité Française</span>
+      <span>Géopolitique mondiale</span>
+      <span>Actualité française</span>
+      <span>Élections & Politique</span>
+      <span>Économie & Marchés</span>
       <span>Analyse & Décryptage</span>
+      <span>Défense & Sécurité</span>
       <span>Sharp Takes</span>
       <span>Fast Facts</span>
-      <span>Géopolitique</span>
-      <span>Actualité Française</span>
+      <span>Géopolitique mondiale</span>
+      <span>Actualité française</span>
+      <span>Élections & Politique</span>
+      <span>Économie & Marchés</span>
       <span>Analyse & Décryptage</span>
+      <span>Défense & Sécurité</span>
       <span>Sharp Takes</span>
       <span>Fast Facts</span>
     </div>
@@ -350,11 +422,18 @@
   <!-- Main -->
   <div class="container">
 
+    <!-- Hero image -->
+    <div class="hero-wrap">
+      <img src="hero.jpeg" alt="France Intel — Arc de Triomphe" />
+      <div class="hero-overlay"></div>
+    </div>
+
     <!-- Logo -->
     <div class="logo-wrap">
       <div class="logo-ring"></div>
-      <img src="IMG_3744.jpeg" alt="France Intel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-      <div style="display:none; width:130px; height:130px; border-radius:50%; background:var(--bleu); align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:2px;">FI</div>
+      <img class="logo-img" src="favicon.png" alt="France Intel"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+      <div style="display:none; width:110px; height:110px; border-radius:50%; background:var(--bleu); align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px;">FI</div>
     </div>
 
     <div class="brand-name">
@@ -362,8 +441,36 @@
     </div>
     <div class="tagline">Sharp takes & fast facts on all things French</div>
 
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">12<span>K</span></div>
+        <div class="stat-label">Abonnés X</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8<span>K</span></div>
+        <div class="stat-label">Instagram</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5<span>K</span></div>
+        <div class="stat-label">Telegram</div>
+      </div>
+    </div>
+
     <!-- Links -->
     <div class="links">
+
+      <!-- Telegram en premier -->
+      <a href="https://t.me/franceintel" target="_blank" rel="noopener" class="link-btn" style="--accent:#29b6f6;">
+        <div class="link-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </div>
+        <div class="link-text">
+          <span class="link-label">Telegram</span>
+          <span class="link-sub">Rejoins le canal</span>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
 
       <!-- X / Twitter -->
       <a href="https://x.com/franceintel" target="_blank" rel="noopener" class="link-btn" style="--accent:#1D9BF0;">
@@ -413,18 +520,6 @@
         <span class="link-arrow">→</span>
       </a>
 
-      <!-- Telegram -->
-      <a href="https://t.me/franceintel" target="_blank" rel="noopener" class="link-btn" style="--accent:#29b6f6;">
-        <div class="link-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        </div>
-        <div class="link-text">
-          <span class="link-label">Telegram</span>
-          <span class="link-sub">Rejoins le canal</span>
-        </div>
-        <span class="link-arrow">→</span>
-      </a>
-
       <!-- Separator -->
       <div class="sep">
         <div class="sep-line"></div>
@@ -446,7 +541,7 @@
 
     <!-- Footer -->
     <div class="footer">
-      © 2025 <span>France Intel</span> · Tous droits réservés
+      © 2026 <span>France Intel</span> · Tous droits réservés
     </div>
 
   </div>
