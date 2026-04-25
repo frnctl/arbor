@@ -169,14 +169,14 @@
     /* === LOGO / HEADER === */
     .logo-wrap {
       position: relative;
-      width: 110px;
-      height: 110px;
+      width: 95px;
+      height: 95px;
       margin-bottom: 16px;
       animation: fadeDown 0.7s 0.1s ease both;
     }
     .logo-wrap img.logo-img {
-      width: 110px;
-      height: 110px;
+      width: 95px;
+      height: 95px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid rgba(255,255,255,0.12);
@@ -382,6 +382,43 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* === HERO ORBIT === */
+    .hero-cta .hero-wrap {
+      overflow: visible;
+    }
+    .hero-orbit {
+      position: absolute;
+      inset: -3px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      z-index: 20;
+      pointer-events: none;
+    }
+    .hero-orbit::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 12px 4px rgba(255,255,255,0.7), 0 0 30px 8px rgba(255,255,255,0.3);
+      top: -5px;
+      left: 50%;
+      offset-path: path("M 0,0 H var(--w) V var(--h) H 0 Z");
+      animation: orbitHero 6s linear infinite;
+    }
+    @keyframes orbitHero {
+      0%   { top: -5px;  left: 50%;          }
+      25%  { top: 50%;   left: calc(100% + 2px); }
+      50%  { top: calc(100% + 2px); left: 50%; }
+      75%  { top: 50%;   left: -5px;          }
+      100% { top: -5px;  left: 50%;          }
+    }
+
+    .hero-cta a:last-child:hover {
+      color: rgba(255,255,255,0.85) !important;
+    }
+
     svg { display: block; }
   </style>
 </head>
@@ -521,12 +558,17 @@
 
     </div>
 
-    <!-- Hero image -->
-    <a href="https://franceintel.fr" target="_blank" rel="noopener" class="hero-wrap" style="margin-top: 32px; margin-bottom: 0; display: block; text-decoration: none;">
-      <img src="hero.jpeg?v=3" alt="France Intel — Arc de Triomphe" />
-      <div class="hero-overlay"></div>
-      <div style="position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; z-index: 2; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; color: rgba(255,255,255,0.85);">Découvrir franceintel.fr →</div>
-    </a>
+    <!-- Hero image with orbit -->
+    <div class="hero-cta" style="margin-top: 32px; position: relative;">
+      <a href="https://franceintel.fr" target="_blank" rel="noopener" class="hero-wrap" style="margin-bottom: 0; display: block; text-decoration: none; position: relative;">
+        <div class="hero-orbit"></div>
+        <img src="hero.jpeg?v=3" alt="France Intel — Arc de Triomphe" />
+        <div class="hero-overlay"></div>
+      </a>
+      <a href="https://franceintel.fr" target="_blank" rel="noopener" style="display: block; text-align: center; margin-top: 14px; text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2.5px; color: rgba(255,255,255,0.5); transition: color 0.2s;">
+        Découvrir franceintel.fr →
+      </a>
+    </div>
 
     <!-- Footer -->
     <div class="footer">
