@@ -395,15 +395,15 @@
     .hero-orbit::before {
       content: '';
       position: absolute;
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
       background: #fff;
       border-radius: 50%;
       box-shadow:
-        0 0 4px #fff,
         0 0 10px #fff,
-        0 0 20px rgba(210,238,255,1),
-        0 0 40px rgba(160,215,255,0.9);
+        0 0 20px #fff,
+        0 0 40px rgba(255,255,255,0.9),
+        0 0 70px rgba(210,238,255,0.8);
       top: 0;
       left: 0;
       offset-path: path("M -10,70 Q 240, -20 490, 70");
@@ -412,21 +412,21 @@
       opacity: 0;
     }
 
-    /* Coma — halo doux, même animation = sync parfait garanti */
+    /* Coma — halo lumineux très visible */
     .hero-orbit::after {
       content: '';
       position: absolute;
-      width: 44px;
-      height: 44px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(160,218,255,0.16) 0%, rgba(110,175,255,0.05) 55%, transparent 75%);
+      background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(200,230,255,0.4) 40%, transparent 70%);
       top: 0;
       left: 0;
       offset-path: path("M -10,70 Q 240, -20 490, 70");
       offset-distance: 0%;
       animation: disneyStar 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       opacity: 0;
-      filter: blur(7px);
+      filter: blur(5px);
       z-index: 18;
       pointer-events: none;
     }
