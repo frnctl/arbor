@@ -382,9 +382,6 @@
     }
 
     /* === HERO ORBIT === */
-    .hero-cta .hero-wrap {
-      overflow: visible;
-    }
     .hero-orbit {
       position: absolute;
       inset: -3px;
@@ -392,19 +389,6 @@
       border: 1px solid rgba(255,255,255,0.08);
       z-index: 20;
       pointer-events: none;
-    }
-
-    /* Dynamic Reflection on the image */
-    .hero-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.25) 0%, transparent 60%);
-      opacity: 0;
-      z-index: 5;
-      pointer-events: none;
-      mix-blend-mode: screen;
-      animation: starReflection 4s ease-in-out infinite;
     }
 
     /* Noyau de la comète */
@@ -422,7 +406,7 @@
         0 0 40px rgba(160,215,255,0.9);
       top: 0;
       left: 0;
-      offset-path: path("M 10,110 C 50,-50 390,-50 430,110");
+      offset-path: path("M 20,180 Q 220, 20 420, 180");
       offset-distance: 0%;
       animation: disneyStar 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       opacity: 0;
@@ -438,19 +422,13 @@
       background: radial-gradient(circle, rgba(160,218,255,0.16) 0%, rgba(110,175,255,0.05) 55%, transparent 75%);
       top: 0;
       left: 0;
-      offset-path: path("M 10,110 C 50,-50 390,-50 430,110");
+      offset-path: path("M 20,180 Q 220, 20 420, 180");
       offset-distance: 0%;
       animation: disneyStar 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       opacity: 0;
       filter: blur(7px);
       z-index: 18;
       pointer-events: none;
-    }
-
-    @keyframes starReflection {
-      0%, 5% { opacity: 0; filter: blur(20px); }
-      15%, 45% { opacity: 1; filter: blur(0px); }
-      65%, 100% { opacity: 0; filter: blur(20px); }
     }
 
     @keyframes disneyStar {
@@ -462,7 +440,7 @@
       /* Traversée */
       30%  { opacity: 1; transform: scale(1.15); filter: brightness(1.6); }
       /* Extinction progressive (disparaît plus loin) */
-      65%  { offset-distance: 70%; opacity: 0; transform: scale(0.4); filter: brightness(1); }
+      80%  { offset-distance: 85%; opacity: 0; transform: scale(0.4); filter: brightness(1); }
       100% { offset-distance: 100%; opacity: 0; }
     }
 
