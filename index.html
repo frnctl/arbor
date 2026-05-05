@@ -449,8 +449,8 @@
 
     @keyframes starReflection {
       0%, 5% { opacity: 0; filter: blur(20px); }
-      15%, 35% { opacity: 1; filter: blur(0px); }
-      50%, 100% { opacity: 0; filter: blur(20px); }
+      15%, 45% { opacity: 1; filter: blur(0px); }
+      65%, 100% { opacity: 0; filter: blur(20px); }
     }
 
     @keyframes disneyStar {
@@ -461,8 +461,8 @@
       15%  { opacity: 1; transform: scale(1.5); filter: brightness(2.2); }
       /* Traversée */
       30%  { opacity: 1; transform: scale(1.15); filter: brightness(1.6); }
-      /* Extinction progressive (disparaît plus tôt) */
-      50%  { offset-distance: 45%; opacity: 0; transform: scale(0.4); filter: brightness(1); }
+      /* Extinction progressive (disparaît plus loin) */
+      65%  { offset-distance: 70%; opacity: 0; transform: scale(0.4); filter: brightness(1); }
       100% { offset-distance: 100%; opacity: 0; }
     }
 
