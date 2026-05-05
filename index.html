@@ -404,7 +404,7 @@
       z-index: 5;
       pointer-events: none;
       mix-blend-mode: screen;
-      animation: starReflection 6s ease-in-out infinite;
+      animation: starReflection 4s ease-in-out infinite;
     }
 
     /* Noyau de la comète */
@@ -424,7 +424,7 @@
       left: 0;
       offset-path: path("M 10,110 C 50,-50 390,-50 430,110");
       offset-distance: 0%;
-      animation: disneyStar 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: disneyStar 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       opacity: 0;
     }
 
@@ -440,7 +440,7 @@
       left: 0;
       offset-path: path("M 10,110 C 50,-50 390,-50 430,110");
       offset-distance: 0%;
-      animation: disneyStar 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: disneyStar 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       opacity: 0;
       filter: blur(7px);
       z-index: 18;
@@ -448,21 +448,21 @@
     }
 
     @keyframes starReflection {
-      0%, 8% { opacity: 0; filter: blur(20px); }
-      15%, 25% { opacity: 1; filter: blur(0px); }
-      35%, 100% { opacity: 0; filter: blur(20px); }
+      0%, 5% { opacity: 0; filter: blur(20px); }
+      15%, 35% { opacity: 1; filter: blur(0px); }
+      50%, 100% { opacity: 0; filter: blur(20px); }
     }
 
     @keyframes disneyStar {
-      0%   { offset-distance: 0%;   opacity: 0; transform: scale(0);   }
-      8%   { offset-distance: 8%;   opacity: 0; transform: scale(0);   }
-      /* Ignition flash — apparition brutale */
-      11%  { opacity: 1; transform: scale(2.8); filter: brightness(4); }
+      0%   { offset-distance: 0%; opacity: 0; transform: scale(0); }
+      5%   { opacity: 0; transform: scale(0); }
+      /* Ignition flash */
+      8%   { opacity: 1; transform: scale(2.8); filter: brightness(4); }
       15%  { opacity: 1; transform: scale(1.5); filter: brightness(2.2); }
-      /* Traversée en pleine puissance */
-      22%  { opacity: 1; transform: scale(1.15); filter: brightness(1.6); }
-      /* Extinction progressive */
-      30%  { offset-distance: 100%; opacity: 0; transform: scale(0.4); filter: brightness(1); }
+      /* Traversée */
+      30%  { opacity: 1; transform: scale(1.15); filter: brightness(1.6); }
+      /* Extinction progressive (disparaît plus tôt) */
+      50%  { offset-distance: 45%; opacity: 0; transform: scale(0.4); filter: brightness(1); }
       100% { offset-distance: 100%; opacity: 0; }
     }
 
